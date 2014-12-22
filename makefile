@@ -12,7 +12,7 @@ libwebsockets-canopy:
 	mkdir -p _out/intermediate/libwebsockets
 	cd _out/intermediate/libwebsockets && cmake -DLWS_USE_IPV6=0 ../../../../3rdparty/libwebsockets
 	make -C _out/intermediate/libwebsockets
-	mv _out/intermediate/libwebsockets/lib/libwebsockets-canopy.so _out/lib/libwebsockets-canopy.so
+	mv _out/intermediate/libwebsockets/lib/libwebsockets-canopy.* _out/lib/
 
 .PHONY: libred-canopy
 libred-canopy:
