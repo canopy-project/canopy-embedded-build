@@ -33,3 +33,7 @@ libcanopy:
 	make -C ../libcanopy
 	mv ../libcanopy/libcanopy.so _out/lib/libcanopy.so
 
+.PHONY: install
+install:
+	mkdir -p /usr/local/lib
+	cp _out/lib/* /usr/local/lib
