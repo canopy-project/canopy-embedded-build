@@ -1,1 +1,1 @@
-export CFLAGS="-Wall -Werror -g"
+export CANOPY_CFLAGS="-Wall -Werror -g"
