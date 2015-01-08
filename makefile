@@ -1,3 +1,7 @@
+ifneq ($(CANOPY_EDK_ENVSETUP),1)
+    $(error You must first run "source envsetup.sh")
+endif
+
 .PHONY: all
 all: libwebsockets-canopy libred-canopy libcanopy libsddl
 	@echo
