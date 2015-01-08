@@ -9,13 +9,16 @@ all: libwebsockets-canopy libred-canopy libcanopy libsddl
 	@echo "* SUCCESS!                                              *"
 	@echo "*********************************************************"
 
+ifeq ($(CANOPY_CROSS_COMPILE),1)
+    LWSTOOLCHAIN := -DLWS_WITHOUT_EXTENSIONS=1 -DLWS_WITH_SSL=0 -DCMAKE_TOOLCHAIN_FILE=../../../../3rdparty/libwebsockets/canopy-cross-compile.cmake
+endif
 
 .PHONY: libwebsockets-canopy
 libwebsockets-canopy:
 	mkdir -p _out/include
 	mkdir -p _out/lib
 	mkdir -p _out/intermediate/libwebsockets
-	cd _out/intermediate/libwebsockets && cmake -DLWS_IPV6=0 ../../../../3rdparty/libwebsockets
+	cd _out/intermediate/libwebsockets && cmake -DLWS_IPV6=0 $(LWSTOOLCHAIN) ../../../../3rdparty/libwebsockets
 	make -C _out/intermediate/libwebsockets
 	mv _out/intermediate/libwebsockets/lib/libwebsockets-canopy.* _out/lib/
 	cp ../3rdparty/libwebsockets/lib/libwebsockets.h _out/include
