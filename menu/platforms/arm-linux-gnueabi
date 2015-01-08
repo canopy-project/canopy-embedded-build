@@ -1,0 +1,4 @@
+CC=/usr/bin/arm-linux-gnueabi-gcc
+LD=/usr/bin/arm-linux-gnueabi-ld
+CANOPY_CROSS_PATH=/usr/arm-linux-gnueabi
+CANOPY_CROSS_COMPILE=1
