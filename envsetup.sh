@@ -64,6 +64,7 @@ fi
 export CANOPY_EMBEDDED_ROOT=$PWD
 export LD_LIBRARY_PATH=$CANOPY_EMBEDDED_ROOT/build/_out/lib
 
+source build/menu/clear_all
 source build/menu/platforms/$PLATFORM || (cd $ORIG_PWD || return)
 source build/menu/flavor/$FLAVOR || (cd $ORIG_PWD || return)
 

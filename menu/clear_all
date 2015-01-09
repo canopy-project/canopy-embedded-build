@@ -1,0 +1,6 @@
+unset CC
+unset LD
+unset CANOPY_CROSS_PATH
+unset CANOPY_CROSS_COMPILE
+
+unset CANOPY_CFLAGS
