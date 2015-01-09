@@ -13,6 +13,10 @@ ifeq ($(CANOPY_CROSS_COMPILE),1)
     LWSTOOLCHAIN := -DLWS_WITHOUT_EXTENSIONS=1 -DLWS_WITH_SSL=0 -DCMAKE_TOOLCHAIN_FILE=../../../../3rdparty/libwebsockets/canopy-cross-compile.cmake
 endif
 
+.PHONY: clean
+clean:
+	rm -r _out
+
 .PHONY: libwebsockets-canopy
 libwebsockets-canopy:
 	mkdir -p _out/include

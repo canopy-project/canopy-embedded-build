@@ -67,6 +67,9 @@ export LD_LIBRARY_PATH=$CANOPY_EMBEDDED_ROOT/build/_out/lib
 source build/menu/platforms/$PLATFORM || (cd $ORIG_PWD || return)
 source build/menu/flavor/$FLAVOR || (cd $ORIG_PWD || return)
 
+# Force clean: remove _out directory
+rm -r build/_out
+
 export CANOPY_EDK_PLATFORM=$PLATFORM
 export CANOPY_EDK_FLAVOR=$FLAVOR
 export CANOPY_EDK_ENVSETUP=1
