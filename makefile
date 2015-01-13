@@ -49,7 +49,7 @@ libred-canopy:
 libsddl:
 	mkdir -p $(BUILD_OUTDIR)/lib
 	make -C ../libsddl
-	mv ../libsddl/libsddl.so $(BUILD_OUTDIR)/lib/libsddl.so
+	mv ../libsddl/$(CANOPY_EDK_BUILD_OUTDIR)/libsddl.so $(BUILD_OUTDIR)/lib/libsddl.so
 	cp ../libsddl/include/*.h $(BUILD_OUTDIR)/include
 
 
