@@ -57,7 +57,7 @@ libsddl:
 libcanopy:
 	mkdir -p $(BUILD_OUTDIR)/lib
 	make -C ../libcanopy
-	mv ../libcanopy/libcanopy.so $(BUILD_OUTDIR)/lib/libcanopy.so
+	mv ../libcanopy/$(CANOPY_EDK_BUILD_OUTDIR)/libcanopy.so $(BUILD_OUTDIR)/lib/libcanopy.so
 	cp ../libcanopy/include/*.h $(BUILD_OUTDIR)/include
 
 .PHONY: install
