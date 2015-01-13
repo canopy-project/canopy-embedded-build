@@ -62,14 +62,14 @@ fi
 
 # Set some search paths
 export CANOPY_EMBEDDED_ROOT=$PWD
-export LD_LIBRARY_PATH=$CANOPY_EMBEDDED_ROOT/build/_out/lib
+export CANOPY_EDK_BUILD_NAME=${PLATFORM}_${FLAVOR}
+export CANOPY_EDK_BUILD_OUTDIR=_out/${PLATFORM}_${FLAVOR}
+export CANOPY_EDK_BUILD_DESTDIR=$CANOPY_EMBEDDED_ROOT/build/_out/${PLATFORM}_${FLAVOR}
+export LD_LIBRARY_PATH=$CANOPY_EMBEDDED_ROOT/build/_out/$CANOPY_EDK_BUILD_NAME/lib
 
 source build/menu/clear_all
 source build/menu/platforms/$PLATFORM || (cd $ORIG_PWD || return)
 source build/menu/flavor/$FLAVOR || (cd $ORIG_PWD || return)
-
-# Force clean: remove _out directory
-rm -r build/_out
 
 export CANOPY_EDK_PLATFORM=$PLATFORM
 export CANOPY_EDK_FLAVOR=$FLAVOR
