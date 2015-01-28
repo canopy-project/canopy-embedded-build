@@ -1,3 +1,4 @@
+#!/bin/bash
 # Run from root of repo with: "source build/envsetup.sh"
 ORIG_PWD=$PWD
 INTERACTIVE=1
