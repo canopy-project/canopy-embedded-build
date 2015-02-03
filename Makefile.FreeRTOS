@@ -1,0 +1,14 @@
+# Copyright (C) 2015 SimpleThings
+# All Rights Reserved.
+
+all:
+	$(MAKE) -C ../canopy_os_mrvl
+	$(MAKE) -C ../libcanopy -f Makefile.FreeRTOS
+
+clean:
+	$(MAKE) -C ../canopy_os_mrvl clean
+	$(MAKE) -C ../libcanopy -f Makefile.FreeRTOS clean
+
+install:
+	$(MAKE) -C ../canopy_os_mrvl install
+	$(MAKE) -C ../libcanopy -f Makefile.FreeRTOS install
