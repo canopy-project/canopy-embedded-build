@@ -5,10 +5,16 @@ if [ -z "$CANOPY_EMBEDDED_ROOT" ]; then
     exit 1
 fi
 
-OUTDIR=$CANOPY_EMBEDDED_ROOT/build/_out/canopy-edk-0.9.0-x86_64
+if [ -z "$1" ]; then
+    echo "Usage: ./make_x86_64_release.sh <ver>"
+    echo "Expected <ver>"
+    exit 1
+fi
+
+OUTDIR=$CANOPY_EMBEDDED_ROOT/build/_out/canopy-edk-${1}-x86_64
 rm -rf _out
 make
 mkdir -p $OUTDIR
-rsync -qav --exclude=".*" _out/include $OUTDIR
-rsync -qav --exclude=".*" _out/lib $OUTDIR
-cd $CANOPY_EMBEDDED_ROOT/build/_out && tar -czvf canopy-edk-0.9.0-x86_64.tgz canopy-edk-0.9.0-x86_64/
+rsync -qav --exclude=".*" _out/linux-default_release/include $OUTDIR
+rsync -qav --exclude=".*" _out/linux-default_release/lib $OUTDIR
+cd $CANOPY_EMBEDDED_ROOT/build/_out && tar -czvf canopy-edk-${1}-x86_64.tgz canopy-edk-${1}-x86_64/
